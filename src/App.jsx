@@ -30,7 +30,6 @@ function App() {
       <Header></Header>
       <Editor></Editor>
       <List></List>
-      <List></List>
     </div>
   );
 }
