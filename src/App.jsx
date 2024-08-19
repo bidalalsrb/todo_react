@@ -31,7 +31,6 @@ function App() {
       <Editor></Editor>
       <List></List>
       <List></List>
-      <h1>git test</h1>
     </div>
   );
 }
