@@ -2,11 +2,12 @@ import { useState } from 'react';
 import './List.css';
 import TodoItem from './TodoItem';
 
-const List = ({ todos }) => {
+const List = ({ todos, onUpdate, onDelete }) => {
   const [search, setSearch] = useState('');
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
   };
+
   const getFilterdData = () => {
     if (search === '') {
       return todos;
@@ -14,7 +15,8 @@ const List = ({ todos }) => {
     return todos.filter((todo) =>
       todo.content.toLowerCase().includes(search.toLowerCase())
     );
-  };
+  }; //검색기능 -> todos를 소문자로 변환 -> search(입력값)을 소문자로 변환 후 필터
+
   const filterdTodos = getFilterdData();
   return (
     <div className="List">
@@ -26,7 +28,14 @@ const List = ({ todos }) => {
       ></input>
       <div className="todos_wrapper">
         {filterdTodos.map((todo) => {
-          return <TodoItem key={todo.id} {...todo} />;
+          return (
+            <TodoItem
+              key={todo.id}
+              {...todo}
+              onUpdate={onUpdate}
+              onDelete={onDelete}
+            />
+          );
         })}
       </div>
     </div>
