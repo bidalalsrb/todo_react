@@ -2,8 +2,8 @@
 
 1. Vite
 2. React + JavaScript
-
-<img src="./todo.png">
+3. useReducer
+   <img src="./todo.png">
 
 ## 프로젝트 주요 내용
 

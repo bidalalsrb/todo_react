@@ -20,7 +20,7 @@ const Editor = ({ onCreate }) => {
       return;
     }
 
-    onCreate();
+    onCreate(content);
     setContent('');
   };
 
