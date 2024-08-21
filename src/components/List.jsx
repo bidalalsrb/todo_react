@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import './List.css';
 import TodoItem from './TodoItem';
 
@@ -18,9 +18,29 @@ const List = ({ todos, onUpdate, onDelete }) => {
   }; //검색기능 -> todos를 소문자로 변환 -> search(입력값)을 소문자로 변환 후 필터
 
   const filterdTodos = getFilterdData();
+
+  const { totalCount, doneCount, notDoneCount } = useMemo(() => {
+    console.log('호출');
+
+    const totalCount = todos.length;
+    const doneCount = todos.filter((todo) => todo.isDone).length;
+    const notDoneCount = totalCount - doneCount;
+    return {
+      totalCount,
+      doneCount,
+      notDoneCount,
+    };
+  }, [todos]);
+  // const { totalCount, doneCount, notDoneCount } = getAnalyzedData();
+
   return (
     <div className="List">
       <h4>Todo List☘️</h4>
+      <div>
+        <div>total : {totalCount}</div>
+        <div>done : {doneCount}</div>
+        <div>notDone : {notDoneCount}</div>
+      </div>
       <input
         value={search}
         onChange={onChangeSearch}
