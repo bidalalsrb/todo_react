@@ -17,7 +17,7 @@ const TodoItem = ({ id, isDone, content, date, onUpdate, onDelete }) => {
       />
       <div className="content">{content}</div>
       <div className="date">{new Date(date).toLocaleDateString()}</div>
-      <button onClick={onClickDeleteButton}> 삭제 </button>
+      <button onClick={onClickDeleteButton}> 삭제하기 </button>
     </div>
   );
 };
